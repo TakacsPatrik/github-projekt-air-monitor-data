@@ -93,8 +93,10 @@
         </div>
         <div class="content">
           <h1 id="attekintes">Overview - Problem Statement</h1>
-          <p style="text-align: justify;"><em>The Qingping Air Monitor 2 is a compact, Wi-Fi-enabled air quality monitoring device that tracks indoor conditions in real time. It measures PM2.5 and PM10 particle concentrations, CO₂ levels, TVOC, as well as temperature, humidity, and noise levels. The device stores the collected data in its own online database, which can be accessed programmatically via an API, making it easy to integrate into enterprise environments and enabling automation and remote data management.</em></p>
-          <p style="text-align: justify;"><em>In this project, a total of 10 air quality monitors continuously collect indoor environmental data, which is stored on the manufacturer’s server. However, the platform only keeps historical data for up to one month, which creates a limitation for long-term analysis. Therefore, it is necessary to regularly extract and store this data locally to ensure long-term availability. In addition, proper evaluation and reporting of the collected data must be carried out to generate meaningful insights.</em></p>
+          <p style="text-align: justify;"><em>First, the program connects to the server via API, then retrieves the previous day’s data from all devices and saves the available measurements in Excel format, creating a separate file for each device within a daily folder.</em></p>
+          <p style="text-align: justify;"><em>After this, a processing script runs that organizes the measurements of the same type from different devices into a single Excel file, with each measurement type placed on a separate worksheet. Processing the time columns is particularly important here: missing measurements are left as empty values, ensuring that every device’s data aligns with the correct timestamps.</em></p>
+          <p style="text-align: justify;"><em>Once this is completed, an evaluation script automatically generates a predefined chart for each worksheet, illustrating the variation of the corresponding measurement type.</em></p>
+          <p style="text-align: justify;"><em>Data recovery is handled by another script, which scans through the folders and, if it detects a missing file for any device, attempts to re-download it from the API. If the download succeeds, the aggregated Excel file is updated together with its corresponding charts.</em></p>
         </div>
       </section>
 
@@ -122,7 +124,7 @@
             <div class="imgwrap">
               <img src="qingping.png" alt="Steps of the development" />
             </div>
-            <figcaption><em>Steps</em></figcaption>
+            <figcaption style="text-align: center;"><em>Steps</em></figcaption>
           </figure>
         </div>
       </section>
@@ -138,7 +140,7 @@
             <div class="imgwrap">
               <img src="qp1.png" alt="Daily Temperature Chart" />
             </div>
-            <figcaption><em>Chart Example: Daily Temperature Chart</em>.</figcaption>
+            <figcaption style="text-align: center;"><em>Chart Example: Daily Temperature Chart</em>.</figcaption>
           </figure>
         </div>
       </section>
@@ -154,7 +156,7 @@
             <div class="imgwrap">
               <img src="qp2.png" alt="Daily CO2 Chart" />
             </div>
-            <figcaption><em>Chart Example: Daily CO2 Chart</em>.</figcaption>
+            <figcaption style="text-align: center;"><em>Chart Example: Daily CO2 Chart</em>.</figcaption>
           </figure>
         </div>
       </section>
