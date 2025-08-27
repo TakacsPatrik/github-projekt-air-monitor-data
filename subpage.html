@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projekt jegyzetfüzet – Colab stílusú elrendezés</title>
-  <meta name="description" content="Google Colab-szerű, cellákra bontott egyoldalas HTML sablon, az eredeti portfólió oldal sötét színvilágával." />
+  <title>Air monitoring project</title>
+  <meta name="description" content="Google Colab-szerű, cellákra bontott egyoldalas HTML sablon." />
   <style>
     :root{
       --bg: #0b0f17;
@@ -71,10 +71,10 @@
   <header>
     <div class="top">
       <span class="dot" aria-hidden="true"></span>
-      <div class="title">OCR with GPT – Projekt jegyzetfüzet</div>
+      <div class="title">Air Monitor Data Integration & Reporting</div>
       <div class="actions">
-        <a class="btn" href="#top">Ugrás a tetejére</a>
-        <a class="btn" href="#beillesztesi-utmutato">Beillesztési útmutató</a>
+        <!-- <a class="btn" href="#top">Ugrás a tetejére</a> -->
+        <!-- <a class="btn" href="#beillesztesi-utmutato">Beillesztési útmutató</a> -->
       </div>
     </div>
   </header>
@@ -92,8 +92,9 @@
           <div class="label">Text</div>
         </div>
         <div class="content">
-          <h1 id="attekintes">Áttekintés / Problem Statement</h1>
-          <p><em>Itt illeszd be az első bekezdést a Wordből (projekt célja, háttér, motiváció).</em></p>
+          <h1 id="attekintes">Overview - Problem Statement</h1>
+          <p><em>The Qingping Air Monitor 2 is a compact, Wi-Fi-enabled air quality monitoring device that tracks indoor conditions in real time. It measures PM2.5 and PM10 particle concentrations, CO₂ levels, TVOC, as well as temperature, humidity, and noise levels. The device stores the collected data in its own online database, which can be accessed programmatically via an API, making it easy to integrate into enterprise environments and enabling automation and remote data management.</em></p>
+          <p><em>In this project, a total of 10 air quality monitors continuously collect indoor environmental data, which is stored on the manufacturer’s server. However, the platform only keeps historical data for up to one month, which creates a limitation for long-term analysis. Therefore, it is necessary to regularly extract and store this data locally to ensure long-term availability. In addition, proper evaluation and reporting of the collected data must be carried out to generate meaningful insights.</em></p>
         </div>
       </section>
 
@@ -104,14 +105,8 @@
           <div class="label">Text</div>
         </div>
         <div class="content">
-          <h2 id="fejlesztes">Fejlesztési folyamat</h2>
-          <ul>
-            <li>Erőforrások összegyűjtése (példakód, API, dokumentáció)</li>
-            <li>Első működő verzió (képfeldolgozás + felolvasás)</li>
-            <li>Prompt finomhangolás</li>
-            <li>Modellek összehasonlítása</li>
-          </ul>
-          <p><em>Ide jönnek a részletes bekezdések a Wordből.</em></p>
+          <h2 id="fejlesztes">Development process</h2>
+          <p><em>First, the program connects to the server via API, then retrieves the previous day’s data from all devices and saves the available measurements in Excel format, creating a separate file for each device within a daily folder. After this, a processing script runs that organizes the measurements of the same type from different devices into a single Excel file, with each measurement type placed on a separate worksheet. Processing the time columns is particularly important here: missing measurements are left as empty values, ensuring that every device’s data aligns with the correct timestamps. Once this is completed, an evaluation script automatically generates a predefined chart for each worksheet, illustrating the variation of the corresponding measurement type. Data recovery is handled by another script, which scans through the folders and, if it detects a missing file for any device, attempts to re-download it from the API. If the download succeeds, the aggregated Excel file is updated together with its corresponding charts.</em></p>
         </div>
       </section>
 
@@ -122,7 +117,7 @@
           <div class="label">Text</div>
         </div>
         <div class="content">
-          <h2 id="validacio">Validáció (Hamming-távolság)</h2>
+          <h2 id="validacio">Steps</h2>
           <p><em>Ide másold a validációs rész szövegét a Wordből (lépések, képletek, kritériumok).</em></p>
           <ul>
             <li>Ismert köteg sorozatszámai</li>
@@ -153,9 +148,9 @@
         <div class="content">
           <figure>
             <div class="imgwrap">
-              <img src="assets/pcb-1.jpg" alt="Kézzel írt sorozatszám egy NYÁK-on" />
+              <img src="qingping.png" alt="Steps of the development" />
             </div>
-            <figcaption>Képaláírás: <em>ide másold a Word szerinti képaláírást</em>.</figcaption>
+            <figcaption>Caption: <em>Steps</em>.</figcaption>
           </figure>
         </div>
       </section>
